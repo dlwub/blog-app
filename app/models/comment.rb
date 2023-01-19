@@ -7,7 +7,9 @@ class Comment < ApplicationRecord
   def recent_comment
     comments.order(created_at: :desc).limit(5)
   end
+
   private
+
   def comment_count
     post.update(comments_counter: post.comments.all.length)
   end
