@@ -26,7 +26,6 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
 
 # 📖 [Blog App] <a name="about-project"></a>
 
@@ -49,7 +48,6 @@
   </ul>
 </details>
 
-<!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
@@ -66,7 +64,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](Coming soon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,15 +83,15 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 Example commands:
- cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+ cd blog-app
+  git clone git@github.com:dlwub/blog-app.git
 
 ### Install
 
 Install this project with:
 
 Example commands:
-cd my-project
+cd blog-app
   gem install
 
 
@@ -105,12 +103,14 @@ To run the project, execute the following command:
 ### Run tests
 
 To run tests, run the following command:
-
- bin/rails test test/models/article_test.rb
+ rspec /*To run all tests */
+ rspec ./spec/models/<file_name>  /*To run individual tests */ 
+ 
 
 ### Deployment
 
 You can deploy this project using:
+COming soon.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -149,26 +149,20 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project, please give me 👍.
+> If you like this project, please give me 👍.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+> I would like to thank my coding partner Justice Bajeri.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
