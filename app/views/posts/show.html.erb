@@ -1,1 +1,11 @@
-<h1> Post <%=@post.title ></h1>
+<div class="individual-post-controller">  
+  <div class="individual-post">
+    <div>Post # <%= @post.id %> by <%= @user.name %></div>
+    <%= render "shared/comments_likes", post: @post %>    
+    <ul>
+      <%= @post.comments.each do |comment| %>
+          <%= render "shared/comments", comment: comment %>
+        <% end %>
+    </ul>  
+</div>
+

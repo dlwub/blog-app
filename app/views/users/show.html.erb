@@ -1,3 +1,18 @@
-<h1><%= @user.name %></h1>
-<%= @user.bio %>
+<div class="individual-user-controller">  
+  <%= render "shared/user_data", user: @user %>
+  <div class="user-bio">
+    <p>Bio</p>
+    <p><%= @user.bio %></p>
+  </div>
+  <ul>
+    <%= @user.posts.each do |post| %>
+      <div class="post">
+        <p>Post #<%= post.id %>
+        <p><%= post.text %></P>
+        <%= render "shared/comments_likes", post: post %> 
+      </div>
+    <% end %>
+  </ul>
+  <button class="post-btn">See all posts</button>
+</div>
 

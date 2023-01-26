@@ -1,0 +1,16 @@
+.user-container {
+  display: flex;
+  
+}
+
+.user-data {
+  display: flex;
+}
+
+.user-photo {
+  height: 100px;
+}
+
+.individual-user-container {
+  display: grid;
+}

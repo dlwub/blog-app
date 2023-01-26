@@ -1,6 +1,16 @@
-<h1> List of all posts by<%=@user.name %></h1>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.title %></li>
-  <% end %>
-</ul>
+<div class="individual-user-controller">  
+  <%= render "shared/user_data", user: @user %>  
+  <ul>
+    <%= @user.posts.each do |post| %>
+      <div class="post">
+        <p>Post #<%= post.id %>
+        <p><%= post.text %></P>
+        <%= render "shared/comments_likes", post: post %>   
+        <%= post.comments.each do |comment| %>
+          <%= render "shared/comments", comment: comment %>
+        <% end %>
+      </div>
+    <% end %>
+  </ul>
+  <button class="post-btn">Pagination</button>
+</div>
