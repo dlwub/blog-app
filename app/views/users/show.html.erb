@@ -11,6 +11,6 @@
       </div>
     <% end %>
   </ul>
-  <%= button_to "See all posts", user_path(User.find(params[:id])) %>  
+  <%= button_to "See all posts", user_posts_path(@user, @post) %>  
 </div>
 
