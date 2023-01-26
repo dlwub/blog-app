@@ -1,5 +1,5 @@
 <div class="user-data">
   <%= image_tag "#{user.photo}" %>  
-  <h1><%= user.name %></h1>
+  <h1><%= link_to user.name, user_path(user) %></h1>
   <p class="number-of-posts">Number of posts: <%= user.posts_counter %></p>
 </div>

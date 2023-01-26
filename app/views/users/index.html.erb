@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
 <ul> 
-    <%=@users.each do |user|%>
-    <%= render "shared/user_data", user: user %>
+    <%=@users.each do |user|%>    
+        <%= render "shared/user_data", user: user %>
     <% end %>
 </ul>
