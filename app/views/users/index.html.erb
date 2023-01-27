@@ -1,6 +1,6 @@
-<h1>List of all users</h1>
-<ul>
-  <%= @users.each do |user|%>
-    <li><%= link_to user.name, user %></li>
-  <% end %>
+<%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+<ul> 
+    <% @users.each do |user|%>    
+        <%= render "shared/user_data", user: user %>
+    <% end %>
 </ul>
