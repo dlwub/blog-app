@@ -3,7 +3,7 @@
     <div>Post # <%= @post.id %> by <%= @user.name %></div>
     <%= render "shared/comments_likes", post: @post %>    
     <ul>
-      <%= @post.comments.each do |comment| %>
+      <% @post.recent_comment.each do |comment| %>
           <%= render "shared/comments", comment: comment %>
         <% end %>
     </ul>  
