@@ -1,0 +1,13 @@
+<%= form_with model: @comment do |form| %>
+  <div class="comment-control">
+    <%= form.label :text %>
+    <%= form.text_area :text%>
+    <% @post.errors.full_messages_for(:text).each do |message| %>
+      <div><%= message %></div>
+    <% end%>
+  </div>
+  <div class="submit-btn">
+    <%= form.submit "Post Comment" %>
+  </div>
+    
+<% end %>

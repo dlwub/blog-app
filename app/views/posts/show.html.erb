@@ -4,8 +4,8 @@
     <%= render "shared/comments_likes", post: @post %>    
     <ul>
       <% @post.recent_comment.each do |comment| %>
-          <%= render "shared/comments", comment: comment %>
-        <% end %>
-    </ul>  
+        <%= render "shared/comments", comment: comment %>
+      <% end %>      
+    </ul>    
 </div>
 
