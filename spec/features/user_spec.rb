@@ -65,27 +65,26 @@ RSpec.describe 'User', type: :feature do
 			expect(page).to have_content('Teacher from Addis.')			
 		end
 
-		it 'has 3 recent lists' do
+		it 'has 3 recent posts' do
 			(2..4).each do |i|
 				expect(page).to have_content("This is my post number #{i}")
 			end				
 		end
 
-		it 'redirects to the first user page' do
-			click_link 'See all posts'
-			(1..4).each do |i|
-				expect(page.body).to have_content("This is my post number #{i}")
-			end	
-		end	
-		
-		it "redirects to post's show page" do
+		it "has a button that let's us view all posts" do
+			expect(page).to have_content('See all posts')		
+		end
+
+		it "redirects to a post's show page" do
 			click_link 'Post # 4'
 			expect(page).to have_content("Post # 4 by Zaid")
 		end
 
-		it "redirects to post's show page" do
+		it 'shows all posts of a user' do
 			click_link 'See all posts'
-			expect(page).to have_content("Pagination")
-		end
+			(1..4).each do |i|
+				expect(page.body).to have_content("This is my post number #{i}")
+			end	
+		end			
 	end
 end
