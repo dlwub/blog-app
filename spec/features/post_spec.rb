@@ -6,15 +6,15 @@ RSpec.describe 'Page', type: :feature do
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'Teacher from Addis.'
     )
-    @post_1 = Post.create(id: 1, author: @user, title: 'Hello', text: 'This is my post number 1')
-    @post_2 = Post.create(id: 2, author: @user, title: 'Hello', text: 'This is my post number 2')
-    @post_3 = Post.create(id: 3, author: @user, title: 'Hello', text: 'This is my post number 3')
-    @post_4 = Post.create(id: 4, author: @user, title: 'Hello', text: 'This is my post number 4')
+    @first_post = Post.create(id: 1, author: @user, title: 'Hello', text: 'This is my post number 1')
+    @second_post = Post.create(id: 2, author: @user, title: 'Hello', text: 'This is my post number 2')
+    @third_post = Post.create(id: 3, author: @user, title: 'Hello', text: 'This is my post number 3')
+    @fourth_post = Post.create(id: 4, author: @user, title: 'Hello', text: 'This is my post number 4')
     (1..6).each do |_i|
-      Comment.create(post: @post_1, author: @user, text: 'Hello Zaid!')
+      Comment.create(post: @first_post, author: @user, text: 'Hello Zaid!')
     end
     (1..5).each do |_i|
-      Like.create(post: @post_1, author: @user)
+      Like.create(post: @first_post, author: @user)
     end
     visit user_posts_path(@user)
     sleep(5)
