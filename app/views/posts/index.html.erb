@@ -1,7 +1,7 @@
 <div class="individual-user-controller">  
   <%= render "shared/user_data", user: @user %>  
   <ul>
-    <% @user.posts.each do |post| %>
+    <% @posts.each do |post| %>
       <div class="post">
         <%= render "shared/post", post: post %> 
         <% post.comments.each do |comment| %>
