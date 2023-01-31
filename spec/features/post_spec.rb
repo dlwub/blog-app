@@ -52,4 +52,30 @@ RSpec.describe 'Page', type: :feature do
       expect(page).to have_selector('br', count:6)
     end
   end
+  describe 'post show page' do
+    before :each do
+      visit user_post_path(@user, @post_1)
+    end
+    it "shows the post's title" do
+      expect(page).to have_content('Hello')
+    end
+    it 'shows the author' do
+      expect(page).to have_content('by Zaid')
+    end
+    it 'shows number of comments' do
+      expect(page).to have_content("Comments: 6")
+    end
+    it "shows number of likes" do
+      expect(page).to have_content("Likes: 5")
+    end
+    it 'shows the posts body' do
+      expect(page).to have_content("This is my post number 1")
+    end
+    it "shows the user name of each commentor" do
+      expect(page).to have_content('Zaid:', count:6)
+    end
+    it "shows the comment of each commentor" do
+      expect(page).to have_content('Hello Zaid!', count:6)
+    end
+  end
 end
