@@ -1,6 +1,5 @@
 <p>
-  <%= link_to "Post #", user_post_path(user_id: post.author_id, id: post.id)  %> 
-  <%= link_to "#{post.id}", user_post_path(user_id: post.author_id, id: post.id) %>
+  <%= link_to "Post # #{post.id}", user_post_path(user_id: post.author_id, id: post.id) %> 
 </p>
 <p>
   <%= post.text %>
