@@ -14,3 +14,7 @@
   <%= button_tag link_to "See all posts", user_posts_path(@user) %>   
 </div>
 
+<% if user_signed_in? %>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
+
