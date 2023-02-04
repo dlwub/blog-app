@@ -73,4 +73,8 @@ group :test do
   gem 'webdrivers'
 end
 
+
 gem 'rswag'
+gem 'devise'
+gem 'letter_opener'
+

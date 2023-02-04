@@ -1,9 +1,10 @@
 <div class="individual-post-controller">  
   <div class="individual-post">
     <div>Post # <%= @post.id %> by <%= @user.name %></div>
+    <div><%= @post.text %></div>
     <%= render "shared/comments_likes", post: @post %>    
     <ul>
-      <% @post.recent_comment.each do |comment| %>
+      <% @post.comments.each do |comment| %>
         <%= render "shared/comments", comment: comment %>
       <% end %>      
     </ul>    

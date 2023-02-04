@@ -4,3 +4,6 @@
         <%= render "shared/user_data", user: user %>
     <% end %>
 </ul>
+<% if user_signed_in? %>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
