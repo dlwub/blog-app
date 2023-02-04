@@ -74,7 +74,6 @@ group :test do
 end
 
 
-gem 'rswag'
 gem 'devise'
 gem 'letter_opener'
-
+gem 'rswag'

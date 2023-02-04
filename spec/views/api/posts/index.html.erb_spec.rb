@@ -9,7 +9,6 @@ RSpec.describe 'api/posts/index', type: :view do
   end
 
   it 'renders a list of api/posts' do
-    render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
+    render Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
   end
 end
