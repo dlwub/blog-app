@@ -5,23 +5,23 @@ describe 'Comments API' do
     post 'Creates a post' do
       tags 'Posts'
       consumes 'application/json'
-      parameter name: :comment, in: :body, schema:{
+      parameter name: :comment, in: :body, schema: {
         type: :object,
         properties: {
-          title: {type: :string},
-          text: {type: :text},
-          author_id: {type: :integer},
-          post_id: {type: :integer}
+          title: { type: :string },
+          text: { type: :text },
+          author_id: { type: :integer },
+          post_id: { type: :integer }
         },
-        required:['title', 'text']
+        required: %w[title text]
       }
       response '201', 'comment created' do
-        let(:comment) {{title: "First comment", text: "Good view!"}}
+        let(:comment) { { title: 'First comment', text: 'Good view!' } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:comment) {{title: "First comment"}}
+        let(:comment) { { title: 'First comment' } }
         run_test!
       end
     end

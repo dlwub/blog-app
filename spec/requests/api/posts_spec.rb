@@ -12,94 +12,92 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/api/posts", type: :request do
-  
+RSpec.describe '/api/posts', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Api::Post. As you add validations to Api::Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Api::Post.create! valid_attributes
       get api_posts_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       post = Api::Post.create! valid_attributes
       get api_post_url(post)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_api_post_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       post = Api::Post.create! valid_attributes
       get edit_api_post_url(post)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Api::Post" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Api::Post' do
+        expect do
           post api_posts_url, params: { api_post: valid_attributes }
-        }.to change(Api::Post, :count).by(1)
+        end.to change(Api::Post, :count).by(1)
       end
 
-      it "redirects to the created api_post" do
+      it 'redirects to the created api_post' do
         post api_posts_url, params: { api_post: valid_attributes }
         expect(response).to redirect_to(api_post_url(Api::Post.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Api::Post" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Api::Post' do
+        expect do
           post api_posts_url, params: { api_post: invalid_attributes }
-        }.to change(Api::Post, :count).by(0)
+        end.to change(Api::Post, :count).by(0)
       end
 
-    
+
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post api_posts_url, params: { api_post: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested api_post" do
+      it 'updates the requested api_post' do
         post = Api::Post.create! valid_attributes
         patch api_post_url(post), params: { api_post: new_attributes }
         post.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the api_post" do
+      it 'redirects to the api_post' do
         post = Api::Post.create! valid_attributes
         patch api_post_url(post), params: { api_post: new_attributes }
         post.reload
@@ -107,26 +105,24 @@ RSpec.describe "/api/posts", type: :request do
       end
     end
 
-    context "with invalid parameters" do
-    
+    context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         post = Api::Post.create! valid_attributes
         patch api_post_url(post), params: { api_post: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested api_post" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested api_post' do
       post = Api::Post.create! valid_attributes
-      expect {
+      expect do
         delete api_post_url(post)
-      }.to change(Api::Post, :count).by(-1)
+      end.to change(Api::Post, :count).by(-1)
     end
 
-    it "redirects to the api_posts list" do
+    it 'redirects to the api_posts list' do
       post = Api::Post.create! valid_attributes
       delete api_post_url(post)
       expect(response).to redirect_to(api_posts_url)

@@ -12,94 +12,92 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/api/comments", type: :request do
-  
+RSpec.describe '/api/comments', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Api::Comment. As you add validations to Api::Comment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Api::Comment.create! valid_attributes
       get api_comments_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       comment = Api::Comment.create! valid_attributes
       get api_comment_url(comment)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_api_comment_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       comment = Api::Comment.create! valid_attributes
       get edit_api_comment_url(comment)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Api::Comment" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Api::Comment' do
+        expect do
           post api_comments_url, params: { api_comment: valid_attributes }
-        }.to change(Api::Comment, :count).by(1)
+        end.to change(Api::Comment, :count).by(1)
       end
 
-      it "redirects to the created api_comment" do
+      it 'redirects to the created api_comment' do
         post api_comments_url, params: { api_comment: valid_attributes }
         expect(response).to redirect_to(api_comment_url(Api::Comment.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Api::Comment" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Api::Comment' do
+        expect do
           post api_comments_url, params: { api_comment: invalid_attributes }
-        }.to change(Api::Comment, :count).by(0)
+        end.to change(Api::Comment, :count).by(0)
       end
 
-    
+
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post api_comments_url, params: { api_comment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested api_comment" do
+      it 'updates the requested api_comment' do
         comment = Api::Comment.create! valid_attributes
         patch api_comment_url(comment), params: { api_comment: new_attributes }
         comment.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the api_comment" do
+      it 'redirects to the api_comment' do
         comment = Api::Comment.create! valid_attributes
         patch api_comment_url(comment), params: { api_comment: new_attributes }
         comment.reload
@@ -107,26 +105,24 @@ RSpec.describe "/api/comments", type: :request do
       end
     end
 
-    context "with invalid parameters" do
-    
+    context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         comment = Api::Comment.create! valid_attributes
         patch api_comment_url(comment), params: { api_comment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested api_comment" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested api_comment' do
       comment = Api::Comment.create! valid_attributes
-      expect {
+      expect do
         delete api_comment_url(comment)
-      }.to change(Api::Comment, :count).by(-1)
+      end.to change(Api::Comment, :count).by(-1)
     end
 
-    it "redirects to the api_comments list" do
+    it 'redirects to the api_comments list' do
       comment = Api::Comment.create! valid_attributes
       delete api_comment_url(comment)
       expect(response).to redirect_to(api_comments_url)
